@@ -1,6 +1,6 @@
 { pkgs }: {
   deps = [
-    pkgs.python310Full
+    pkgs.python310
     pkgs.python310Packages.pip
   ];
 }
