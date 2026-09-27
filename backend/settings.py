@@ -12,10 +12,13 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load .env file from the root folder (one level up from BASE_DIR)
+load_dotenv(BASE_DIR.parent / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
@@ -76,15 +79,19 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
+db_password = os.environ.get('DB_PASSWORD', '')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_backend',
         'NAME': 'tactiq_db',
         'CLIENT': {
-            'host': 'mongodb+srv://i233029:<db_password>@project.h2qh5gr.mongodb.net/?appName=PROJECT'
+            'host': f'mongodb+srv://i233029:{db_password}@project.h2qh5gr.mongodb.net/?appName=PROJECT'
         }
     }
 }
+
+DEFAULT_AUTO_FIELD = 'django_mongodb_backend.fields.ObjectIdAutoField'
 
 
 # Password validation
