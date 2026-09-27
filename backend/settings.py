@@ -79,7 +79,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
-db_password = os.environ.get('DB_PASSWORD', '')
+import urllib.parse
+db_password = urllib.parse.quote_plus(os.environ.get('DB_PASSWORD', ''))
 
 DATABASES = {
     'default': {
