@@ -1,7 +1,7 @@
 --index-url https://pypi.org/simple/
-Django==5.0.3
-djangorestframework>=3.15.2
+Django>=5.2.0
+djangorestframework==3.15.2
 gunicorn>=22.0.0
 whitenoise==6.6.0
-django-mongodb-backend
+django-mongodb-backend>=5.2.0
 pymongo
