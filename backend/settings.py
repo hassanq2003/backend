@@ -78,8 +78,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django_mongodb_backend',
+        'NAME': 'tactiq_db',
+        'CLIENT': {
+            'host': 'mongodb+srv://i233029:<db_password>@project.h2qh5gr.mongodb.net/?appName=PROJECT'
+        }
     }
 }
 
