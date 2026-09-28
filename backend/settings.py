@@ -86,13 +86,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django_mongodb_backend',
         'NAME': 'tactiq_db',
-        'CLIENT': {
-            'host': f'mongodb+srv://i233029:{db_password}@project.h2qh5gr.mongodb.net/?appName=PROJECT'
-        }
+        'HOST': f'mongodb+srv://i233029:{db_password}@project.h2qh5gr.mongodb.net/?appName=PROJECT',
     }
 }
 
 DEFAULT_AUTO_FIELD = 'django_mongodb_backend.fields.ObjectIdAutoField'
+SILENCED_SYSTEM_CHECKS = ['mongodb.fields.auto.E001']
 
 
 # Password validation
