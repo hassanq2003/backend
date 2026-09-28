@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+
+[build.nixpacksPlan.phases.build]
+cmds = ["python manage.py collectstatic --noinput"]
+
+[deploy]
+startCommand = "gunicorn backend.wsgi --log-file -"
